@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Year Older, A Year Bolder!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=CMU+Serif&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #fcebed;
+      color: #5c3b2e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #f4d7d9;
+      padding: 40px 20px;
+      text-align: center;
+      border: 8px double #d6a29c;
+    }
+
+    header h1 {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 48px;
+      margin: 0;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff0f2;
+      border: 2px solid #d6a29c;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .card h2 {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    /* Gallery */
+    .gallery-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 12px;
+      animation: scrollGallery 60s linear infinite;
+    }
+
+    .gallery img {
+      border: 2px solid #d6a29c;
+      border-radius: 10px;
+      width: 120px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      flex: 0 0 auto;
+    }
+
+    @keyframes scrollGallery {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Letter Section */
+    .letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      text-align: center;
+      line-height: 1.8;
+      background: #fff9f9;
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px dashed #d6a29c;
+      color: #4a2c27;
+    }
+
+    /* Surprise */
+    .surprise {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .surprise video {
+      max-width: 100%;
+      border: 2px solid #d6a29c;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #f4d7d9;
+      border: 2px solid #d6a29c;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f4d7d9;
+      font-size: 14px;
+      color: #8c5e4e;
+    }
+
+    /* First Page */
+    .first-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .second-page {
+      display: none;
+    }
+
+    .flower-character {
+      position: fixed;
+      bottom: -100px; /* Awal posisi bunga */
+      left: 50%;
+      transform: translateX(-50%) scale(0.7); /* Mengurangi ukuran bunga */
+      display: none;
+      animation: flowerAnimation 2s ease-out forwards;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      bottom: 120%; /* Posisi gelembung sedikit lebih tinggi */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #d6a29c;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #5c3b2e;
+      white-space: nowrap;
+      animation: bubbleAnimation 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      background-color: #f4d7d9;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    @keyframes flowerAnimation {
+      0% {
+        transform: translateX(-50%) translateY(100%) scale(0.7);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-50px) scale(0.7); /* Ukuran bunga dikurangi */
+        opacity: 1;
+      }
+    }
+
+    @keyframes bubbleAnimation {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    header h1 {
+      font-size: 36px;
+    }
+
+    .card h2 {
+      font-size: 28px;
+    }
+
+    .letter {
+      font-size: 18px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <audio id="background-music" loop hidden>
+    <source src="Lagu Teromantis dari Banda Neira - Sampai Jadi Debu.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="first-page">
+    <div>
+      <header>
+        <h1>A New Chapter Begins</h1>
+        <p>by pink𖹭</p>
+      </header>
+      <section>
+        <button onclick="startMusic()">୨ৎ Start and Enter Celebration</button>
+      </section>
+    </div>
+  </div>
+
+  <div class="second-page">
+    <header>
+      <h1>A New Chapter Begins</h1>
+      <p>by pink𖹭</p>
+    </header>
+    <section>
+      <div class="card">
+        <h2>Birthday Letter</h2>
+        <div class="letter">
+          Dear Ira Iru,<br /><br />
+          Selamat 20th, selamat memasuki fase dewasa sesungguhnya! Hari ini aku ga cuma ngerayain kelahiranmu, tapi juga semua vibes positif yang kamu bawa ke hidup aku dan semua orang. Aku sangat berterimakasi sama kamu dek, karena kamu orang yang selalu bikin semuanya lebih seru dan penuh warna. Maaf yaa kado dari aku cuman dibuatin web, semoga kamu selalu suka sama kado apa yang aku kasih ya dek , semoga juga tahun ini penuh dengan tawa, kebahagiaan yang ngga ada habisnya, dan momen-momen yang bikin kamu selalu merasa blessed. Aamiin. Keep shining, you're one of a kind! LOVE YOU SO MUCHH ꒰ᐢ. .ᐢ꒱𖹭 <br /><br />
+          With love, Pink 💌<br />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Gallery of Memories</h2>
+        <div class="gallery-container">
+          <div class="gallery">
+          <img src="photo_2025-04-29_20-55-52.jpg" alt="Memory 1">
+  <img src="photo_10_2025-04-29_20-57-25.jpg" alt="Memory 2">
+  <img src="photo_4_2025-04-29_20-57-00.jpg" alt="Memory 3">
+  <img src="photo_8_2025-04-29_20-57-25.jpg" alt="Memory 4">
+  <img src="photo_8_2025-04-29_20-57-00.jpg" alt="Memory 5">
+  <img src="photo_9_2025-04-29_20-57-00.jpg" alt="Memory 6">
+  <img src="photo_7_2025-04-29_20-57-25.jpg" alt="Memory 6">
+  <img src="photo_6_2025-04-29_20-57-25.jpg" alt="Memory 7">
+  <img src="photo_6_2025-04-29_20-57-00.jpg" alt="Memory 8">
+  <img src="photo_5_2025-04-29_20-57-25.jpg" alt="Memory 9">
+  <img src="photo_3_2025-04-29_20-57-00.jpg" alt="Memory 10">
+  <img src="photo_2_2025-04-29_20-57-25.jpg" alt="Memory 11">
+  <img src="photo_1_2025-04-29_20-57-25.jpg" alt="Memory 12">
+  <img src="photo_1_2025-04-29_20-57-25.jpg" alt="Memory 13">
+  <!-- Duplikat buat looping mulus -->
+  <img src="photo_2025-04-29_20-55-52.jpg" alt="Memory 1">
+  <img src="photo_10_2025-04-29_20-57-25.jpg" alt="Memory 2">
+  <img src="photo_4_2025-04-29_20-57-00.jpg" alt="Memory 3">
+  <img src="photo_8_2025-04-29_20-57-25.jpg" alt="Memory 4">
+  <img src="photo_8_2025-04-29_20-57-00.jpg" alt="Memory 5">
+  <img src="photo_9_2025-04-29_20-57-00.jpg" alt="Memory 6">
+  <img src="photo_7_2025-04-29_20-57-25.jpg" alt="Memory 6">
+  <img src="photo_6_2025-04-29_20-57-25.jpg" alt="Memory 7">
+  <img src="photo_6_2025-04-29_20-57-00.jpg" alt="Memory 8">
+  <img src="photo_5_2025-04-29_20-57-25.jpg" alt="Memory 9">
+  <img src="photo_3_2025-04-29_20-57-00.jpg" alt="Memory 10">
+  <img src="photo_2_2025-04-29_20-57-25.jpg" alt="Memory 11">
+  <img src="photo_1_2025-04-29_20-57-25.jpg" alt="Memory 12">
+  <img src="photo_1_2025-04-29_20-57-25.jpg" alt="Memory 13">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What is this??</h2>
+        <div class="surprise">
+          <button id="surprise-btn" onclick="showVideo()">✨ Click for a surprise ✨</button>
+          <div id="surprise-content" class="hidden">
+            <video id="surprise-video" controls>
+              <source src="lv_0_20250430000611.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 A New Chapter Begins. All rights reserved.
+  </footer>
+
+  <div class="flower-character">
+    <div class="speech-bubble">this is for you, HAHA love love you</div>
+    <img src="647b4973-6196-40e4-920d-9547b5968d6b-removebg-preview.png" alt="Flower Character" />
+    <button class="close-btn" onclick="closeFlowerAnimation()">Close</button>
+  </div>
+
+  <script>
+    function startMusic() {
+      const music = document.getElementById('background-music');
+      music.play();
+      document.querySelector('.first-page').style.display = 'none';
+      document.querySelector('.second-page').style.display = 'block';
+    }
+
+    function showVideo() {
+      document.getElementById('surprise-content').classList.remove('hidden');
+      document.getElementById('surprise-btn').classList.add('hidden');
+    }
+
+    function closeFlowerAnimation() {
+      const flowerCharacter = document.querySelector('.flower-character');
+      flowerCharacter.style.display = 'none'; // Menyembunyikan animasi bunga
+    }
+
+    // Event listener untuk video selesai diputar
+    const video = document.getElementById('surprise-video');
+    video.addEventListener('ended', function () {
+      const flowerCharacter = document.querySelector('.flower-character');
+      flowerCharacter.style.display = 'block'; // Menampilkan animasi bunga setelah video selesai
+    });
+  </script>
+</body>
+</html>
